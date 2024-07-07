@@ -51,4 +51,4 @@ class BeautyJobService:
         beauty_job_da = DataAccess(BeautyJob)
         return beauty_job_da.find_by(BeautyJob.description == description)
 
-    #to do :dg kodom field haro barash find by benevisam?
+    #todo :dg kodom field haro barash find by benevisam?
