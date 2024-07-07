@@ -7,7 +7,6 @@ class Reserve(Base):
     __tablename__ = "reserve_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
 
-
     _timing_id = Column("timing_id", Integer, ForeignKey("timing_tbl.id"))
     timing = relationship("Timing")
 
