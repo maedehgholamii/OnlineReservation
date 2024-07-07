@@ -1,4 +1,4 @@
-from controller.exceptions.exceptions  import BeautyJobNotFoundError
+from controller.exceptions.exceptions import BeautyJobNotFoundError
 from model.da.da import *
 from model.entity.beauty_job import BeautyJob
 
@@ -36,7 +36,6 @@ class BeautyJobService:
         beauty_job_da = DataAccess(BeautyJob)
         return beauty_job_da.find_by_id(id)
 
-
     @staticmethod
     def find_by_title(title):
         beauty_job_da = DataAccess(BeautyJob)
@@ -51,4 +50,3 @@ class BeautyJobService:
     def find_by_description(description):
         beauty_job_da = DataAccess(BeautyJob)
         return beauty_job_da.find_by(BeautyJob.description == description)
-
