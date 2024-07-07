@@ -1,6 +1,6 @@
 import re
-
-
+from model.entity.timing import *
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Date, Time
 def pattern_validator(pattern, message):
     def inner1(function_name):
         def inner2(self, text):
@@ -21,7 +21,7 @@ def date_validator(message):
             elif isinstance(date_param, str):
                 date_param = date_param.replace('/', '-')
                 try:
-                    date_param = datetime.strptime(date_param, '%Y-%m-%d').date()
+                    date_param = date.strptime(date_param, '%Y-%m-%d').date()
                     result = function_name(self, date_param)
                 except:
                     raise ValueError(message)
