@@ -1,13 +1,14 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Date,Time
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Date, Time
 from sqlalchemy.orm import relationship
 from model.entity.base import Base
 from model.tools.validator import *
 
+
 class Timing(Base):
     __tablename__ = "timing_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
-    _shift_date = Column("shift_date",Date)
-    _start_time = Column("start_time",Time)
+    _shift_date = Column("shift_date", Date)
+    _start_time = Column("start_time", Time)
     _end_time = Column("end_time", Time)
 
     _employee_id = Column("employee_id", Integer, ForeignKey("employee_tbl.id"))
@@ -27,7 +28,6 @@ class Timing(Base):
     @property
     def shift_date(self):
         return self._shift_date
-
 
     @shift_date.setter
     def shift_date(self, shift_date):

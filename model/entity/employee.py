@@ -12,3 +12,51 @@ class Employee(Base):
      _mobile = Column("mobile", String(11))
      _instagram_id = Column("instagram_id", String(20))
      _telegram_id = Column("telegram_id", String(30))
+
+     @property
+     def id(self):
+          return self._id
+
+     @id.setter
+     def id(self, id):
+          self._id = id
+
+     @property
+     def name(self):
+          return self._name
+
+     @name.setter
+     def name(self, name):
+          self._name = name
+
+     @property
+     def family(self):
+          return self._family
+
+     @family.setter
+     def family(self, family):
+          self._family = family
+
+     @property
+     def mobile(self):
+          return self._mobile
+
+     @mobile.setter
+     def mobile(self, mobile):
+          self._mobile = mobile
+
+     @property
+     def instagram_id(self):
+          return self._instagram_id
+
+     @instagram_id.setter
+     def instagram_id(self, instagram_id):
+          self._instagram_id = instagram_id
+
+     @property
+     def telegram_id(self):
+          return self._telegram_id
+
+     @telegram_id.setter
+     def telegram_id(self, telegram_id):
+          self._telegram_id = telegram_id
