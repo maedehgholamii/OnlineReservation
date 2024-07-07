@@ -9,3 +9,35 @@ class BeautyJob(Base):
     _title = Column("title", String(20), nullable=False, unique = True)
     _image = Column("image", String(50))
     _description = Column("description", String(100))
+
+    @property
+    def id(self):
+        return self._id
+
+    @id.setter
+    def id(self, id):
+        self._id = id
+    @property
+    def title(self):
+        return self._title
+
+    @title.setter
+    def title(self, title):
+        self._title = title
+
+    @property
+    def image(self):
+        return self._image
+
+    @image.setter
+    def image(self, image):
+        self._image = image
+
+    @property
+    def description(self):
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        self._description = description
+
