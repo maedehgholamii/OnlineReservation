@@ -2,7 +2,7 @@ class CustomerNotFoundError(Exception):
     def __init__(self, *args):
         super().__init__("Customer Not Found !!!")
 
-class Beauty_JobNotFoundError(Exception):
+class BeautyJobNotFoundError(Exception):
     def __init__(self, *args):
         super().__init__("Beauty Job Not Found !!!")
 
