@@ -34,3 +34,14 @@ class CustomerService:
     def find_by_id(id):
         customer_da = DataAccess(Customer)
         return customer_da.find_by_id(id)
+
+    @staticmethod
+    def find_by_mobile(mobile):
+        customer_da = DataAccess(Customer)
+        return customer_da.find_by_mobile(Customer.mobile==mobile)
+
+    @staticmethod
+    def find_by_name(name):
+        customer_da = DataAccess(Customer)
+        return customer_da.find_by_name(Customer.name==name)
+#to do :dg kodom field haro barash find by benevisam?
