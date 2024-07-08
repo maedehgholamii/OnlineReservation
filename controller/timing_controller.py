@@ -3,7 +3,7 @@ from model.service.timing_service import TimingService
 from model.tools.decorators import exception_handling
 from model.tools.logger import Logger
 
-class CustomerController:
+class TimingController:
     @classmethod
     @exception_handling
     def save(cls,shift_date, start_time,end_time):
@@ -37,18 +37,4 @@ class CustomerController:
     def find_by_id(cls,id):
         timing = TimingService.find_by_id(id)
         Logger.info(f"Timing Find By Id({id})")
-        return True, timing
-
-    @classmethod
-    @exception_handling
-    def find_by_family(cls,family):
-        timing = TimingService.find_by_family(family)
-        Logger.info(f"Timing Find By Family({family})")
-        return True, timing
-
-    @classmethod
-    @exception_handling
-    def find_by_mobile(cls,mobile):
-        timing = TimingService.find_by_mobile(mobile)
-        Logger.info(f"Timing Find By Mobile({mobile})")
         return True, timing
