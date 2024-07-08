@@ -44,7 +44,9 @@ class CustomerController:
     def find_by_name(cls,name):
         customer = CustomerService.find_by_name(name)
         Logger.info(f"Customer Find By Name({name})")
-        return True, customer    @staticmethod
+        return True, customer
+
+    @staticmethod
     @exception_handling
     def find_by_mobile(cls,mobile):
         customer = CustomerService.find_by_mobile(mobile)
