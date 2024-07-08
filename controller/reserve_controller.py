@@ -18,3 +18,25 @@ class ReserveController:
         reserve.id = id
         ReserveService.edit()
         return True, reserve
+
+    @classmethod
+    def remove(cls,id):
+        reserve = ReserveService.remove(id)
+        Logger.info(f"Reserve Removed - {reserve}")
+        return True, reserve
+
+    @classmethod
+    @exception_handling
+    def find_all(cls,):
+        reserve_list = ReserveService.find_all()
+        Logger.info(f"Reserve FindAll()")
+        return True, reserve_list
+
+    @classmethod
+    @exception_handling
+    def find_by_id(cls,id):
+        reserve = ReserveService.find_by_id(id)
+        Logger.info(f"Reserve Find By Id({id})")
+        return True, reserve
+
+#todo : find by??????
