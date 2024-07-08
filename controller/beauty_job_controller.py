@@ -11,7 +11,7 @@ class BeautyJobController:
         BeautyJobService.save(beauty_job)
         return True, beauty_job
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def edit(cls,id, title,image,description):
         beauty_job = BeautyJob(id,title,image,description)
@@ -19,20 +19,20 @@ class BeautyJobController:
         BeautyJobService.edit(beauty_job)
         return True, beauty_job
 
-    @staticmethod
+    @classmethod
     def remove(cls,id):
         beauty_job = BeautyJobService.remove(id)
         Logger.info(f"BeautyJob Removed - {beauty_job}")
         return True, beauty_job
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def find_all(cls,):
         beauty_job_list = BeautyJobService.find_all()
         Logger.info(f"BeautyJob FindAll()")
         return True, beauty_job_list
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def find_by_id(cls,id):
         beauty_job = BeautyJobService.find_by_id(id)
