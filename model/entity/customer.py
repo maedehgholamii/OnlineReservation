@@ -41,7 +41,7 @@ class Customer(Base):
 
     @family.setter
     def family(self, family):
-        self._family = family
+        self._family =Validator (family,"Invalid Family!")
 
     @property
     def mobile(self):

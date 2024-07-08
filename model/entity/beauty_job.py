@@ -4,6 +4,7 @@ from model.entity.base import Base
 from model.tools.validator import *
 
 
+
 class BeautyJob(Base):
     __tablename__ = "beauty_job_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
@@ -31,7 +32,7 @@ class BeautyJob(Base):
 
     @title.setter
     def title(self, title):
-        self._title = title
+        self._title = Validator(title, "Invalid Title!!")
 
     @property
     def image(self):
