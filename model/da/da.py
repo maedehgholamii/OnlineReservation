@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import create_database, database_exists
 from model.entity.base import Base
 
-connection_string = "mysql+pymysql://root:root123@localhost:3306/online_reservation"
+connection_string = "mysql+pymysql://root:root123@localhost:3306/mft"
 if not database_exists(connection_string):
     create_database(connection_string)
 
@@ -30,7 +30,8 @@ class DataAccess:
         session.refresh(entity)
         return entity
 
-    def remove(self, entity):
+    def remove(self, id):
+        entity = session.get(self.class_name, id)
         session.delete(entity)
         session.commit()
         session.refresh(entity)
@@ -47,4 +48,3 @@ class DataAccess:
     def find_by(self, find_statement):
         entity = session.query(self.class_name).filter(find_statement).all()
         return entity
-
