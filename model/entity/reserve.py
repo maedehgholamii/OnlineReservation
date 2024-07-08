@@ -9,6 +9,8 @@ class Reserve(Base):
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
     _shift_date = Column("shift_date", Date)
     _start_time = Column("start_time", Time)
+    _end_time = Column("end_time", Time)
+
     _timing_id = Column("timing_id", Integer, ForeignKey("timing_tbl.id"))
     timing = relationship("Timing")
 

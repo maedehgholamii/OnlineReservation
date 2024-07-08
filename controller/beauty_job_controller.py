@@ -3,7 +3,7 @@ from model.service.beauty_job_service import BeautyJobService
 from model.tools.decorators import exception_handling
 from model.tools.logger import Logger
 
-class CustomerController:
+class BeautyJobController:
     @classmethod
     @exception_handling
     def save(cls, title,image,description):

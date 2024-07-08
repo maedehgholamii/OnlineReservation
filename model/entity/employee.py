@@ -13,6 +13,9 @@ class Employee(Base):
      _instagram_id = Column("instagram_id", String(20))
      _telegram_id = Column("telegram_id", String(30))
 
+     def __init__(self,name,family,mobile,instagram_id,telegram_id):
+          self._name = name
+
      @property
      def id(self):
           return self._id
