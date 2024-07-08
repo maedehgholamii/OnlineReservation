@@ -11,7 +11,7 @@ class CustomerController:
         CustomerService.save(customer)
         return True, customer
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def edit(cls,id,name,family,mobile,instagram_id,telegram_id):
         customer = Customer(name,family,mobile,instagram_id,telegram_id)
@@ -19,34 +19,34 @@ class CustomerController:
         CustomerService.edit(customer)
         return True, customer
 
-    @staticmethod
+    @classmethod
     def remove(cls,id):
         customer = CustomerService.remove(id)
         Logger.info(f"Customer Removed - {customer}")
         return True, customer
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def find_all(cls,):
         customer_list = CustomerService.find_all()
         Logger.info(f"Customer FindAll()")
         return True, customer_list
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def find_by_id(cls,id):
         customer = CustomerService.find_by_id(id)
         Logger.info(f"Customer Find By Id({id})")
         return True, customer
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def find_by_name(cls,name):
         customer = CustomerService.find_by_name(name)
         Logger.info(f"Customer Find By Name({name})")
         return True, customer
 
-    @staticmethod
+    @classmethod
     @exception_handling
     def find_by_mobile(cls,mobile):
         customer = CustomerService.find_by_mobile(mobile)
