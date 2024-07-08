@@ -13,8 +13,13 @@ class Employee(Base):
      _instagram_id = Column("instagram_id", String(20))
      _telegram_id = Column("telegram_id", String(30))
 
-     def __init__(self,name,family,mobile,instagram_id,telegram_id):
+     def __init__(self,id,name,family,mobile,instagram_id,telegram_id):
+          self._id = None
           self._name = name
+          self._family = family
+          self._mobile = mobile
+          self._instagram_id = instagram_id
+          self._telegram_id = telegram_id
 
      @property
      def id(self):

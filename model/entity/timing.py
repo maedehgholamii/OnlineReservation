@@ -11,6 +11,12 @@ class Timing(Base):
     _start_time = Column("start_time", Time)
     _end_time = Column("end_time", Time)
 
+    def __init__(self,id, shift_date, start_time,end_time):
+        self._id = None
+        self._shift_date = shift_date
+        self._start_time = start_time
+        self._end_time = end_time
+
     _employee_id = Column("employee_id", Integer, ForeignKey("employee_tbl.id"))
     employee = relationship("Employee")
 
