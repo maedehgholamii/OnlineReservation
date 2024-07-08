@@ -41,9 +41,9 @@ class CustomerController:
 
     @classmethod
     @exception_handling
-    def find_by_name(cls,name):
-        customer = CustomerService.find_by_name(name)
-        Logger.info(f"Customer Find By Name({name})")
+    def find_by_family(cls,family):
+        customer = CustomerService.find_by_family(family)
+        Logger.info(f"Customer Find By Family({family})")
         return True, customer
 
     @classmethod
