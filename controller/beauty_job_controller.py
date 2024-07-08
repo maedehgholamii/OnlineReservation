@@ -6,14 +6,14 @@ from model.tools.logger import Logger
 class BeautyJobController:
     @classmethod
     @exception_handling
-    def save(cls, title,image,description):
+    def save(cls,id,title,image,description):
         beauty_job = BeautyJob(title,image,description)
         BeautyJobService.save(beauty_job)
         return True, beauty_job
 
     @classmethod
     @exception_handling
-    def edit(cls,id, title,image,description):
+    def edit(cls,id,title,image,description):
         beauty_job = BeautyJob(id,title,image,description)
         beauty_job.id = id
         BeautyJobService.edit(beauty_job)

@@ -20,8 +20,8 @@ class Timing(Base):
     _employee_id = Column("employee_id", Integer, ForeignKey("employee_tbl.id"))
     employee = relationship("Employee")
 
-    _beauty_job_id = Column("beauty_job_id", Integer, ForeignKey("beauty_job_tbl.id"))
-    beauty_job = relationship("BeautyJob")
+    #_beauty_job_id = Column("beauty_job_id", Integer, ForeignKey("beauty_job_tbl.id"))
+    #beauty_job = relationship("BeautyJob")
 
     @property
     def id(self):

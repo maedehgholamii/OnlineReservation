@@ -2,7 +2,6 @@ from model.entity.reserve import Reserve
 from model.service.reserve_service import ReserveService
 from model.tools.decorators import exception_handling
 from model.tools.logger import Logger
-
 class ReserveController:
     @classmethod
     @exception_handling
