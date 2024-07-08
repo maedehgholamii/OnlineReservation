@@ -41,9 +41,9 @@ class EmployeeController:
 
     @classmethod
     @exception_handling
-    def find_by_name(cls,name):
-        employee_list = EmployeeService.find_by_name(name)
-        Logger.info(f"Employee Find By Name({name})")
+    def find_by_family(cls,family):
+        employee_list = EmployeeService.find_by_family(family)
+        Logger.info(f"Employee Find By Family({family})")
         return True, employee_list
 
     @classmethod

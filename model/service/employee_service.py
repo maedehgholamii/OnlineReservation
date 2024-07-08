@@ -2,6 +2,7 @@ from controller.exceptions.exceptions import EmployeeNotFoundError
 from model.da.da import *
 from model.entity.employee import Employee
 
+
 class EmployeeService:
 
     @staticmethod
@@ -9,14 +10,16 @@ class EmployeeService:
         employee_da = DataAccess(Employee)
         employee_da.save(employee)
         return employee
+
     @staticmethod
     def edit(employee):
-        employee_da = DataAccess(Employee )
+        employee_da = DataAccess(Employee)
         if employee_da.find_by_id(employee.id):
             employee_da.edit(employee)
             return employee
         else:
             raise EmployeeNotFoundError()
+
     @staticmethod
     def remove(id):
         employee_da = DataAccess(Employee)
@@ -36,13 +39,13 @@ class EmployeeService:
         return employee_da.find_by_id(id)
 
     @staticmethod
-    def find_by_name(name):
+    def find_by_family(family):
         employee_da = DataAccess(Employee)
-        return employee_da.find_by_name(Employee.name == name)
+        return employee_da.find_by_family(Employee.family == family)
 
     @staticmethod
     def find_by_mobile(mobile):
         employee_da = DataAccess(Employee)
         return employee_da.find_by_mobile(Employee.mobile == mobile)
 
-#todo: dg kodom field haro barash find by benevisam?
+# todo: dg kodom field haro barash find by benevisam?
