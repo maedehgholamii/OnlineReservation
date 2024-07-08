@@ -10,7 +10,7 @@ class EmployeeNotFoundError(Exception):
     def __init__(self, *args):
         super().__init__("Employee Not Found !!!")
 
-class ReserveotFoundError(Exception):
+class ReserveNotFoundError(Exception):
     def __init__(self, *args):
         super().__init__("Reserve Not Found !!!")
 

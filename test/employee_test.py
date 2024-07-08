@@ -1,3 +1,4 @@
-from controller.employee_controller import EmployeeContoller
+from controller.employee_controller import EmployeeController
 
-emplo
+EmployeeController.save("maedeh", "gh","09121112233", "m_id","n_id")
+

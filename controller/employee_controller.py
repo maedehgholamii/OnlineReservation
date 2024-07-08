@@ -17,7 +17,7 @@ class EmployeeController:
         employee = Employee(name,family,mobile,instagram_id,telegram_id)
         employee.id = id
         EmployeeService.edit()
-        return True,
+        return True, employee
 
     @classmethod
     def remove(cls,id):
