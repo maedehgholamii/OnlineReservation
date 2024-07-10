@@ -1,74 +1,44 @@
 import re
-from model.entity.timing import *
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Date, Time
-def pattern_validator(pattern, message):
-    def inner1(function_name):
-        def inner2(self, text):
-            if isinstance(text,str) and re.match(pattern, text):
-                result = function_name(self, text)
-            else:
-                raise ValueError(message)
-            return result
-        return inner2
-    return inner1
+from datetime import datetime, date
 
 
-def date_validator(message):
-    def inner1(function_name):
-        def inner2(self, date_param):
-            if isinstance(date_param, date):
-                result = function_name(self, date_param)
-            elif isinstance(date_param, str):
-                date_param = date_param.replace('/', '-')
-                try:
-                    date_param = date.strptime(date_param, '%Y-%m-%d').date()
-                    result = function_name(self, date_param)
-                except:
-                    raise ValueError(message)
-            else:
-                raise ValueError(message)
-            return result
-        return inner2
-    return inner1
+def name_validator(name, message):
+    if isinstance(name, str) and re.match(r"^[a-zA-Z\s]{2,30}$", name):
+        return name
+    else:
+        raise ValueError(message)
 
 
-def date_time_validator(message):
-    def inner1(function_name):
-        def inner2(self, date_time_param):
-            if isinstance(date_time_param, date):
-                result = function_name(self, date_time_param)
-            elif isinstance(date_time_param, str):
-                date_time_param = date_time_param.replace('/', '-')
-                try:
-                    date_time_param = datetime.strptime(date_time_param, '%Y-%m-%d %H:%M:%S').date()
-                    result = function_name(self, date_time_param)
-                except:
-                    raise ValueError(message)
-            else:
-                raise ValueError(message)
-            return result
-        return inner2
-    return inner1
+def national_id_validator(national_id, message):
+    if isinstance(national_id, str) and re.match(r"^\d{10}$", national_id):
+        return national_id
+    else:
+        raise ValueError(message)
 
 
-def boolean_validator(message):
-    def inner1(function_name):
-        def inner2(self, bool_param):
-            if isinstance(bool_param, bool):
-                result = function_name(self, bool_param)
-            else:
-                raise ValueError(message)
-            return result
-
-        return inner2
-
-    return inner1
+def positive_int_validator(int_value, message):
+    if isinstance(int_value, int) and int_value >= 0:
+        return int_value
+    else:
+        raise ValueError(message)
 
 
-class Validator:
-    @staticmethod
-    def name_validator(name, message):
-        if isinstance(name, str) and re.match(r"^[a-zA-Z\s]{2,30}$", name):
-            return name
-        else:
-            raise ValueError(message)
+def boolean_validator(bool_value, message):
+    if isinstance(bool_value, bool):
+        return bool_value
+    else:
+        raise ValueError(message)
+
+
+def date_validator(date_value, message):
+    if isinstance(date_value, date):
+        return date_value
+    else:
+        raise ValueError(message)
+
+
+def date_time_validator(date_time_value, message):
+    if isinstance(date_time_value, datetime):
+        return date_time_value
+    else:
+        raise ValueError(message)
