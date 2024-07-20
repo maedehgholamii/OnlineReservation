@@ -9,9 +9,9 @@ def name_validator(name, message):
         raise ValueError(message)
 
 
-def national_id_validator(national_id, message):
-    if isinstance(national_id, str) and re.match(r"^\d{10}$", national_id):
-        return national_id
+def mobile_validator(mobile, message):
+    if isinstance(mobile, str) and re.match(r"^\d{11}$", mobile):
+        return mobile
     else:
         raise ValueError(message)
 
