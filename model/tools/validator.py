@@ -42,3 +42,9 @@ def date_time_validator(date_time_value, message):
         return date_time_value
     else:
         raise ValueError(message)
+
+def description_validator(description_value, message):
+    if isinstance(description_value, str):
+        return description_value
+    else:
+        raise ValueError(message)

@@ -32,7 +32,7 @@ class BeautyJob(Base):
 
     @title.setter
     def title(self, title):
-        self._title = Validator(title, "Invalid Title!!")
+        self._title = name_validator(title, "Invalid Title!!")
 
     @property
     def image(self):
@@ -48,4 +48,4 @@ class BeautyJob(Base):
 
     @description.setter
     def description(self, description):
-        self._description = description
+        self._description = description_validator(description, "Invalid Description!!")
