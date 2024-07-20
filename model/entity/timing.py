@@ -11,7 +11,7 @@ class Timing(Base):
     _start_time = Column("start_time", Time)
     _end_time = Column("end_time", Time)
 
-    def __init__(self,id, shift_date, start_time,end_time):
+    def __init__(self,shift_date, start_time,end_time):
         self._id = None
         self._shift_date = shift_date
         self._start_time = start_time
