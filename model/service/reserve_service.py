@@ -37,4 +37,6 @@ class ReserveService:
         reserve_da = DataAccess(Reserve)
         return reserve_da.find_by_id(id)
 
-#todo : find by ???????
+    def find_by_shift_date(shift_date):
+        reserve_da = DataAccess(Reserve)
+        return reserve_da.find_by_shift_date(Reserve.shift_date == shift_date)

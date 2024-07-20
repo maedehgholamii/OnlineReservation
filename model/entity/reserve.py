@@ -3,7 +3,6 @@ from sqlalchemy.orm import relationship
 from model.entity.base import Base
 from model.tools.validator import *
 
-
 class Reserve(Base):
     __tablename__ = "reserve_tbl"
     _id = Column("id", Integer, primary_key=True, autoincrement=True)
@@ -11,12 +10,11 @@ class Reserve(Base):
     _start_time = Column("start_time", Time)
     _end_time = Column("end_time", Time)
 
-    def __init__(self, id, shift_date, start_time, end_time):
+    def __init__(self, shift_date, start_time, end_time):
         self._id = None
         self._shift_date = shift_date
         self._start_time = start_time
         self._end_time = end_time
-
 
     _timing_id = Column("timing_id", Integer, ForeignKey("timing_tbl.id"))
     timing = relationship("Timing")
@@ -49,9 +47,9 @@ class Reserve(Base):
         self._start_time = start_time
 
     @property
-    def timing_id(self):
-        return self._timing_id
+    def end_time(self):
+        return self._end_time
 
-    @timing_id.setter
-    def timing_id(self, timing_id):
-        self._timing_id = timing_id
+    @end_time.setter
+    def end_time(self, end_time):
+        self._end_time = end_time
