@@ -7,6 +7,10 @@ from model.entity.employee import Employee
 from model.entity.reserve import Reserve
 from model.entity.timing import Timing
 from tkinter import *
+import re
+from tkinter import *
+import tkinter.messagebox as msg
+import tkinter.ttk as ttk
 
 class OnlineReservationView:
     def beauty_job_table_click(self,row):
@@ -34,15 +38,44 @@ class OnlineReservationView:
         self.title("Online Reservation View")
         self.win.geometry("500x500")
 
-        beauty_job_table = Table(self.win,
+        self.beauty_job_table = Table(self.win,
                              ["Id", "Title", "Image", "Description"],
                              [60,80,80,80,50], 20, 20 ,
                              self.beauty_job_table_click)
 
         self.beauty_job_table.refresh_table(self.beauty_job_da.find_all())
-        customer_table = Table(self.win,
+        self.customer_table = Table(self.win,
                              ["Id","Name","Family","Mobile", "Instagram_Id", "Telegram_id"],
                              [60,80,80,80,50,60,60],300,20 ,
                              self.customer_table_click)
 
+
+
+        user_list = [("maedeh", "maedeh"), ("navid", "navid")]
+
+        def login():
+            if (username.get(), password.get()) in user_list:
+                msg.showinfo("Login", "Welcome")
+
+            else:
+                msg.showerror("Access Denied", "Invalid Username or Password")
+
+        win = Tk()
+        win.geometry("250x250")
+
+        # Id
+        Label(win, text="Username").place(x=20, y=20)
+        username = StringVar()
+        username_txt = Entry(win, textvariable=username)
+        username_txt.place(x=100, y=20)
+
+        # Name
+        Label(win, text="Password").place(x=20, y=70)
+        password = StringVar()
+        password_txt = Entry(win, textvariable=password)
+        password_txt.place(x=100, y=70)
+
+        Button(win, text="Login", width=10, command=login).place(x=60, y=170)
+
         self.win.mainloop()
+
