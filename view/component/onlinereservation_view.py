@@ -39,7 +39,7 @@ class OnlineReservationView:
         self.win.geometry("500x500")
         self.username = TextWithLabel(self.win,"username",x = 20 , y = 80)
         self.password = TextWithLabel(self.win,"password",x = 20 , y = 100)
-        Button(self.win,text='vorod',command=self.check).place(x=20,y=140)
+        Button(self.win,text='vorod',command=self.check, bg = "lightblue").place(x=80,y=140)
         # self.beauty_job_table = Table(self.win,
         #                      ["Id", "Title", "Image", "Description"],
         #                      [60,80,80,80,50], 20, 20 ,
