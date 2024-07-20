@@ -35,7 +35,7 @@ class Employee(Base):
 
     @name.setter
     def name(self, name):
-        self._name = name
+        self._name = name_validator(name,"Invalid Name!!")
 
     @property
     def family(self):
@@ -43,7 +43,7 @@ class Employee(Base):
 
     @family.setter
     def family(self, family):
-        self._family = family
+        self._family = name_validator(family,"Invalid Family!!")
 
     @property
     def mobile(self):
@@ -51,7 +51,7 @@ class Employee(Base):
 
     @mobile.setter
     def mobile(self, mobile):
-        self._mobile = mobile
+        self._mobile = mobile_validator(mobile,"Invalid Mobile!!")
 
     @property
     def instagram_id(self):
