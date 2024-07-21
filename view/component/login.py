@@ -10,7 +10,7 @@ from tkinter import *
 import re
 from tkinter import *
 import tkinter.messagebox as msg
-import tkinter.ttk as ttk
+import tkinter.ttk as tk
 
 class OnlineReservationView:
     # def beauty_job_table_click(self,row):
@@ -35,11 +35,11 @@ class OnlineReservationView:
         self.timing_da = DataAccess(Timing)
         self.reserve_da = DataAccess(Reserve)
         self.win = Tk()
-        self.win.title("title")
+        self.win.title("Login")
         self.win.geometry("500x500")
-        self.username = TextWithLabel(self.win,"username",x = 20 , y = 80)
-        self.password = TextWithLabel(self.win,"password",x = 20 , y = 100)
-        Button(self.win,text='vorod',command=self.check, bg = "lightblue").place(x=80,y=140)
+        self.username = TextWithLabel(self.win,"username",x = 20 , y = 20)
+        self.password = TextWithLabel(self.win,"password",x = 20 , y = 50)
+        Button(self.win,text='vorod',command=self.check, bg = "lightblue").place(x=60,y=80)
         # self.beauty_job_table = Table(self.win,
         #                      ["Id", "Title", "Image", "Description"],
         #                      [60,80,80,80,50], 20, 20 ,
