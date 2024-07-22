@@ -22,10 +22,18 @@ class CustomerView:
         elif result.startswith("Error"):
             msg.showerror("Error", result)
 
+    def edit_click(self):
+        status, result = CustomerController.save_customer(self.name.get(), self.family.get(), self.mobile.get(), self.instagram_id.get(),self.telegram_id.get())
+        if status:
+            msg.showinfo("Customer Saved!", result)
+            self.reset_form()
+        elif result.startswith("Error"):
+            msg.showerror("Error", result)
+
     def __init__(self):
         self.win = Tk()
         self.win.title("Customer View")
-        self.win.geometry("1100x400")
+        self.win.geometry("1000x400")
 
         name = TextWithLabel(self.win, "name: ", 20, 20)
 
@@ -40,7 +48,7 @@ class CustomerView:
 
         Button(self.win, text= "save", command=self.save_click).place(x=20 , y=340)
 
-        self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5,6), show="headings")
+        self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5), show="headings")
 
         self.table.column(1, width=100)
         self.table.column(2, width=100)
