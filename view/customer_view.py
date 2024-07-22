@@ -15,7 +15,7 @@ class CustomerView:
                 self.table.insert("", END, values=(customer.name, customer.family, customer.mobile, customer.instagram_id, customer.telegram_id))
 
     def save_click(self):
-        status, result = CustomerController.save_customer(self.name.get(), self.family.get(), self.mobile.get(), self.instagram_id.get(),self.telegram_id.get())
+        status, result = CustomerController.save(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
         if status:
             msg.showinfo("Customer Saved!", result)
             self.reset_form()
@@ -23,30 +23,42 @@ class CustomerView:
             msg.showerror("Error", result)
 
     def edit_click(self):
-        status, result = CustomerController.save_customer(self.name.get(), self.family.get(), self.mobile.get(), self.instagram_id.get(),self.telegram_id.get())
+        status, result = CustomerController.edit_customer(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
         if status:
-            msg.showinfo("Customer Saved!", result)
+            msg.showinfo("Customer Edited!", result)
             self.reset_form()
         elif result.startswith("Error"):
             msg.showerror("Error", result)
 
+    def remove_click(self):
+        status, result = CustomerController.remove_customer(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
+        if status:
+            msg.showinfo("Customer Deleted!", result)
+            self.reset_form()
+        elif result.startswith("Error"):
+            msg.showerror("Error", result)
+
+
+
     def __init__(self):
         self.win = Tk()
         self.win.title("Customer View")
-        self.win.geometry("1000x400")
+        self.win.geometry("900x350")
 
-        name = TextWithLabel(self.win, "Name", 20, 20)
+        self.name = TextWithLabel(self.win, "Name", 20, 20)
 
-        family = TextWithLabel(self.win, "Family", 20, 60)
+        self.family = TextWithLabel(self.win, "Family", 20, 60)
 
-        mobile = TextWithLabel(self.win, "Mobile", 20, 100)
+        self.mobile = TextWithLabel(self.win, "Mobile", 20, 100)
 
-        instagram_id = TextWithLabel(self.win, "Instagram Id", 20, 140)
+        self.instagram_id = TextWithLabel(self.win, "Instagram Id", 20, 140)
 
-        telegram_id = TextWithLabel(self.win, "Telegram Id", 20, 180)
+        self.telegram_id = TextWithLabel(self.win, "Telegram Id", 20, 180)
 
 
-        Button(self.win, text= "save", command=self.save_click).place(x=20 , y=340)
+        Button(self.win, text= "save", command=self.save_click).place(x=100 , y=300)
+        Button(self.win, text= "edit", command=self.edit_click).place(x=140 , y=300)
+        Button(self.win, text= "delete", command=self.remove_click).place(x=180 , y=300)
 
         self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5), show="headings")
 

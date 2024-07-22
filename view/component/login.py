@@ -1,11 +1,7 @@
 from model.da.da import DataAccess
 from view.component.label_text import TextWithLabel
 from view.component.table import Table
-from model.entity.beauty_job import BeautyJob
-from model.entity.customer import Customer
-from model.entity.employee import Employee
-from model.entity.reserve import Reserve
-from model.entity.timing import Timing
+from model.entity import *
 import tkinter as tk
 import tkinter.messagebox as msg
 from tkinter import ttk
@@ -77,5 +73,4 @@ class OnlineReservationView:
         print(f"Username: {username}, Password: {password}")
 
 
-app = OnlineReservationView()
-app.win.mainloop()
+
