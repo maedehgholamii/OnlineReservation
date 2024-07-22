@@ -1,7 +1,6 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
-from sqlalchemy.orm import relationship
-from model.entity.base import Base
-from model.tools.validator import *
+
+
+
 
 
 
