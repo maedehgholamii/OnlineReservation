@@ -35,15 +35,15 @@ class CustomerView:
         self.win.title("Customer View")
         self.win.geometry("1000x400")
 
-        name = TextWithLabel(self.win, "name: ", 20, 20)
+        name = TextWithLabel(self.win, "Name", 20, 20)
 
-        family = TextWithLabel(self.win, "family: ", 20, 60)
+        family = TextWithLabel(self.win, "Family", 20, 60)
 
-        mobile = TextWithLabel(self.win, "national id: ", 20, 100)
+        mobile = TextWithLabel(self.win, "Mobile", 20, 100)
 
-        instagram_id = TextWithLabel(self.win, "birthday: ", 20, 140)
+        instagram_id = TextWithLabel(self.win, "Instagram Id", 20, 140)
 
-        telegram_id = TextWithLabel(self.win, "phone: ", 20, 180)
+        telegram_id = TextWithLabel(self.win, "Telegram Id", 20, 180)
 
 
         Button(self.win, text= "save", command=self.save_click).place(x=20 , y=340)
