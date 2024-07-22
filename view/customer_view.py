@@ -22,7 +22,7 @@ class CustomerView:
         elif result.startswith("Error"):
             msg.showerror("Error", result)
 
-    def show(self):
+    def __init__(self):
         self.win = Tk()
         self.win.title("Customer View")
         self.win.geometry("1100x400")
