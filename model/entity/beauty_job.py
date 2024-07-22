@@ -1,7 +1,4 @@
-
-
-
-
+from model.entity import *
 
 
 class BeautyJob(Base):

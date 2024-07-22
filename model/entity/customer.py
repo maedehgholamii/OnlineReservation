@@ -1,7 +1,5 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
-from sqlalchemy.orm import relationship
-from model.entity.base import Base
-from model.tools.validator import *
+from model.entity import *
+
 
 class Customer(Base):
     __tablename__ = "customer_tbl"

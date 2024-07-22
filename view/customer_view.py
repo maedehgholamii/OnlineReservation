@@ -47,7 +47,6 @@ class CustomerView:
         self.table.column(3, width=100)
         self.table.column(4, width=100)
         self.table.column(5, width=100)
-        self.table.column(6, width=120)
 
 
         self.table.heading(1, text="name")

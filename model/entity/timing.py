@@ -1,8 +1,6 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, Date, Time
-from sqlalchemy.orm import relationship
-from model.entity.base import Base
-from model.entity.employee import Employee
-from model.tools.validator import *
+
+from model.entity import *
+
 
 
 class Timing(Base):
