@@ -23,7 +23,7 @@ class CustomerView:
             msg.showerror("Error", result)
 
     def edit_click(self):
-        status, result = CustomerController.edit_customer(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
+        status, result = CustomerController.edit(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
         if status:
             msg.showinfo("Customer Edited!", result)
             self.reset_form()
@@ -31,7 +31,7 @@ class CustomerView:
             msg.showerror("Error", result)
 
     def remove_click(self):
-        status, result = CustomerController.remove_customer(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
+        status, result = CustomerController.remove(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
         if status:
             msg.showinfo("Customer Deleted!", result)
             self.reset_form()
