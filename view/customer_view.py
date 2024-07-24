@@ -56,11 +56,11 @@ class CustomerView:
         self.telegram_id = TextWithLabel(self.win, "Telegram Id", 20, 180)
 
 
-        Button(self.win, text= "save", command=self.save_click).place(x=100 , y=300)
-        Button(self.win, text= "edit", command=self.edit_click).place(x=140 , y=300)
-        Button(self.win, text= "delete", command=self.remove_click).place(x=180 , y=300)
+        Button(self.win, text= "save",activebackground = "light blue", command=self.save_click).place(x=90 , y=250, width = 50)
+        Button(self.win, text= "edit",activebackground = "orange", command=self.edit_click).place(x=140 , y=250, width = 50)
+        Button(self.win, text= "delete", activebackground = "red",command=self.remove_click).place(x=190 , y=250 , width = 50)
 
-        self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5), show="headings")
+        self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5), show="headings", height= 13)
 
         self.table.column(1, width=100)
         self.table.column(2, width=100)
