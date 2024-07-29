@@ -9,6 +9,7 @@ from view.component.label_text import TextWithLabel
 
 class CustomerView:
     def reset_form(self):
+        self.table.delete(*self.table.get_children())
         status, customer_list = CustomerController.find_all()
         if status:
             for customer in customer_list:
@@ -31,12 +32,10 @@ class CustomerView:
             msg.showerror("Error", result)
 
     def remove_click(self):
-        status, result = CustomerController.remove(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
-        if status:
-            msg.showinfo("Customer Deleted!", result)
-            self.reset_form()
-        elif result.startswith("Error"):
-            msg.showerror("Error", result)
+        get_id = self.remove_row.variable.get()
+        CustomerController.remove_customer(get_id)
+        msg.showinfo("remove", "Customer Removed!")
+        self.reset_form()
 
 
 
