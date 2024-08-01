@@ -1,3 +1,4 @@
-from view.customer_view import CustomerView
 
-ui = CustomerView()
+from view.beauty_job_view import BeautyJobView
+
+ui = BeautyJobView()

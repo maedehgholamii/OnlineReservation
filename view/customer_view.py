@@ -2,7 +2,6 @@ from controller import *
 from tkinter import *
 import tkinter.messagebox as msg
 import tkinter.ttk as ttk
-
 from controller.customer_controller import CustomerController
 from view.component.label_text import TextWithLabel
 

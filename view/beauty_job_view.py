@@ -2,13 +2,13 @@ from controller import *
 from tkinter import *
 import tkinter.messagebox as msg
 import tkinter.ttk as ttk
-
 from controller.beauty_job_controller import BeautyJobController
 from view.component.label_text import TextWithLabel
 
 
 class BeautyJobView:
     def reset_form(self):
+        self.table.delete(*self.table.get_children())
         status, beauty_job_list = BeautyJobController.find_all()
         if status:
             for beauty_job in beauty_job_list:
@@ -23,7 +23,7 @@ class BeautyJobView:
             msg.showerror("Error", result)
 
     def edit_click(self):
-        status, result = BeautyJobController.save_eauty_job(self.title.get(), self.image.get(), self.description.get())
+        status, result = BeautyJobController.save_beauty_job(self.title.get(), self.image.get(), self.description.get())
         if status:
             msg.showinfo("Beauty Job Edited!", result)
             self.reset_form()
@@ -40,29 +40,29 @@ class BeautyJobView:
 
 
 
-    def show(self):
+    def __init__(self):
         self.win = Tk()
         self.win.title("Customer View")
-        self.win.geometry("1000x400")
+        self.win.geometry("800x300")
 
-        name = TextWithLabel(self.win, "Title", 20, 20)
+        self.title = TextWithLabel(self.win, "Title", 20, 20)
 
-        family = TextWithLabel(self.win, "Image", 20, 60)
+        self.image = TextWithLabel(self.win, "Image", 20, 60)
 
-        mobile = TextWithLabel(self.win, "Description", 20, 100)
-
-
+        self.description = TextWithLabel(self.win, "Description", 20, 100)
 
 
-        Button(self.win, text= "save", command=self.save_click).place(x=20 , y=300)
-        Button(self.win, text= "edit", command=self.edit_click).place(x=20 , y=340)
-        Button(self.win, text= "delete", command=self.remove_click).place(x=20 , y=380)
 
-        self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5), show="headings")
+
+        Button(self.win, text= "save",activebackground = "light blue", command=self.save_click).place(x=90 , y=150, width = 50)
+        Button(self.win, text= "edit",activebackground = "orange", command=self.edit_click).place(x=140 , y=150, width = 50)
+        Button(self.win, text= "delete", activebackground = "red",command=self.remove_click).place(x=190 , y=150 , width = 50)
+
+        self.table = ttk.Treeview(self.win, columns=(1,2,3), show="headings", height=10)
 
         self.table.column(1, width=100)
         self.table.column(2, width=100)
-        self.table.column(3, width=100)
+        self.table.column(3, width=200)
 
 
 
