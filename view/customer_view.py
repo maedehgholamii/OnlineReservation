@@ -44,35 +44,38 @@ class CustomerView:
         self.win.title("Customer View")
         self.win.geometry("900x350")
 
-        self.name = TextWithLabel(self.win, "Name", 20, 20)
+        self.id = TextWithLabel(self.win, "ID For ٍEdit: ", 20, 20)
 
-        self.family = TextWithLabel(self.win, "Family", 20, 60)
+        self.name = TextWithLabel(self.win, "Name", 20, 60)
 
-        self.mobile = TextWithLabel(self.win, "Mobile", 20, 100)
+        self.family = TextWithLabel(self.win, "Family", 20, 100)
 
-        self.instagram_id = TextWithLabel(self.win, "Instagram Id", 20, 140)
+        self.mobile = TextWithLabel(self.win, "Mobile", 20, 140)
 
-        self.telegram_id = TextWithLabel(self.win, "Telegram Id", 20, 180)
+        self.instagram_id = TextWithLabel(self.win, "Instagram Id", 20, 180)
+
+        self.telegram_id = TextWithLabel(self.win, "Telegram Id", 20, 220)
 
 
         Button(self.win, text= "save",activebackground = "light blue", command=self.save_click).place(x=90 , y=250, width = 50)
         Button(self.win, text= "edit",activebackground = "orange", command=self.edit_click).place(x=140 , y=250, width = 50)
         Button(self.win, text= "delete", activebackground = "red",command=self.remove_click).place(x=190 , y=250 , width = 50)
 
-        self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5), show="headings", height= 13)
+        self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5,6), show="headings", height= 13)
 
         self.table.column(1, width=100)
         self.table.column(2, width=100)
         self.table.column(3, width=100)
         self.table.column(4, width=100)
         self.table.column(5, width=100)
+        self.table.column(6, width=100)
 
-
-        self.table.heading(1, text="name")
-        self.table.heading(2, text="family")
-        self.table.heading(3, text=" mobile")
-        self.table.heading(4, text="instagram_id")
-        self.table.heading(5, text="telegram_id")
+        self.table.heading(1, text="id")
+        self.table.heading(2, text="name")
+        self.table.heading(3, text="family")
+        self.table.heading(4, text=" mobile")
+        self.table.heading(5, text="instagram_id")
+        self.table.heading(6, text="telegram_id")
 
         self.table.place(x=320,y=20)
 
