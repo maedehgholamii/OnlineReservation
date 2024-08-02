@@ -14,7 +14,7 @@ class BeautyJobView:
             for beauty_job in beauty_job_list:
                 self.table.insert("", END, values=(beauty_job.name, beauty_job.family, beauty_job.mobile, beauty_job.instagram_id, beauty_job.telegram_id))
 
-    def save_click(self):
+    def save(self):
         status, result = BeautyJobController.save_beauty_job(self.title.get(), self.image.get(), self.description.get())
         if status:
             msg.showinfo("Beauty Job Saved!", result)
@@ -22,7 +22,7 @@ class BeautyJobView:
         elif result.startswith("Error"):
             msg.showerror("Error", result)
 
-    def edit_click(self):
+    def edit(self):
         status, result = BeautyJobController.save_beauty_job(self.title.get(), self.image.get(), self.description.get())
         if status:
             msg.showinfo("Beauty Job Edited!", result)
@@ -30,7 +30,7 @@ class BeautyJobView:
         elif result.startswith("Error"):
             msg.showerror("Error", result)
 
-    def remove_click(self):
+    def remove(self):
         status, result = BeautyJobController.save_beauty_job(self.title.get(), self.image.get(), self.description.get())
         if status:
             msg.showinfo("Beauty Job Deleted!", result)
@@ -54,9 +54,9 @@ class BeautyJobView:
 
 
 
-        Button(self.win, text= "save",activebackground = "light blue", command=self.save_click).place(x=90 , y=150, width = 50)
-        Button(self.win, text= "edit",activebackground = "orange", command=self.edit_click).place(x=140 , y=150, width = 50)
-        Button(self.win, text= "delete", activebackground = "red",command=self.remove_click).place(x=190 , y=150 , width = 50)
+        Button(self.win, text= "save",activebackground = "light blue", command=self.save).place(x=90 , y=150, width = 50)
+        Button(self.win, text= "edit",activebackground = "orange", command=self.edit).place(x=140 , y=150, width = 50)
+        Button(self.win, text= "delete", activebackground = "red",command=self.remove).place(x=190 , y=150 , width = 50)
 
         self.table = ttk.Treeview(self.win, columns=(1,2,3), show="headings", height=10)
 
