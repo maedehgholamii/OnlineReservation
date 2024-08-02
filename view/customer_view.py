@@ -12,7 +12,7 @@ class CustomerView:
         status, customer_list = CustomerController.find_all()
         if status:
             for customer in customer_list:
-                self.table.insert("", END, values=(customer.name, customer.family, customer.mobile, customer.instagram_id, customer.telegram_id))
+                self.table.insert("", END, values=(customer.id,customer.name, customer.family, customer.mobile, customer.instagram_id, customer.telegram_id))
 
     def save_click(self):
         status, result = CustomerController.save(self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
