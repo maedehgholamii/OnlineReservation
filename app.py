@@ -1,4 +1,4 @@
 
-from view.employee_view import EmployeeView
+from view.timing_view import TimingView
 
-ui = EmployeeView()
+ui = TimingView()

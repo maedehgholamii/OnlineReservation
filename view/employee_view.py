@@ -14,9 +14,7 @@ class EmployeeView:
                 self.table.insert("", END, values=(employee.id, employee.name, employee.family, employee.mobile, employee.instagram_id, employee.telegram_id))
 
     def save_click(self):
-        status_value = self.status.variable.get()  # مقدار وضعیت انتخاب شده
-        status_bool = True if status_value == "True" else False  # تبدیل به مقدار منطقی
-        status, result = EmployeeController.save(self.name.variable.get(), self.family.variable.get(),self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get(),status_bool)
+        status, result = EmployeeController.save(self.name.variable.get(), self.family.variable.get(),self.mobile.variable.get(), self.instagram_id.variable.get(),self.telegram_id.variable.get())
         if status:
             msg.showinfo("Save",f"Employee saved? \n {result}")
             self.reset_form()
@@ -24,9 +22,7 @@ class EmployeeView:
             msg.showerror("Error", result)
 
     def edit(self):
-        status_value = self.status.variable.get()  # مقدار وضعیت انتخاب شده
-        status_bool = True if status_value == "True" else False  # تبدیل به مقدار منطقی
-        result = EmployeeController.edit(self.id.variable.get(), self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(), self.telegram_id.variable.get(), status_bool)
+        result = EmployeeController.edit(self.id.variable.get(), self.name.variable.get(), self.family.variable.get(), self.mobile.variable.get(), self.instagram_id.variable.get(), self.telegram_id.variable.get())
         if result:
             msg.showinfo("Edit",f"Employee edited? \n {result}")
             self.reset_form()
@@ -56,8 +52,6 @@ class EmployeeView:
 
         self.telegram_id = TextWithLabel(self.win, "Telegram Id ", 20, 220)
 
-        self.status = TextWithLabel(self.win, "Status: ", 20, 300)
-
         self.remove_row = TextWithLabel(self.win, "ID For Remove: ", 330, 260)
 
         Button(self.win, text= "save", command=self.save_click).place(x=90 , y=350, width = 50)
@@ -66,7 +60,7 @@ class EmployeeView:
 
         Button(self.win, text= "remove", command=self.remove).place(x=630 , y=260, width = 50)
 
-        self.table = ttk.Treeview(self.win, columns=(1, 2, 3, 4, 5, 6, 7), show="headings")
+        self.table = ttk.Treeview(self.win, columns=(1, 2, 3, 4, 5, 6), show="headings")
 
         self.table.column(1, width=60)
         self.table.column(2, width=100)
@@ -74,7 +68,6 @@ class EmployeeView:
         self.table.column(4, width=100)
         self.table.column(5, width=100)
         self.table.column(6, width=100)
-        self.table.column(7, width=100)
 
         self.table.heading(1, text="id")
         self.table.heading(2, text="Name")
@@ -82,7 +75,6 @@ class EmployeeView:
         self.table.heading(4, text="Mobile")
         self.table.heading(5, text="Instagram Id")
         self.table.heading(6, text="Telegram id")
-        self.table.heading(7, text="Status")
 
         self.table.place(x=320,y=20)
 
