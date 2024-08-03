@@ -1,6 +1,5 @@
-from view.customer_view import CustomerView
-from view.employee_view import EmployeeView
 from view.reserve_view import ReserveView
+from view.customer_view import CustomerView
 # print("App started")
 # ui = PersonView()
 # ui.show()
@@ -15,13 +14,13 @@ from view.component.label_text import TextWithLabel
 class FrontView:
 
     def show_view_customer(self):
-        msg.showinfo("question", "برای ایجاد حساب  ابتدا مشخصات خود را وارد کنید ")
+        msg.showinfo("question", "برای ایجاد حساب بانکی ابتدا مشخصات خود را وارد کنید ")
         ui = CustomerView()
-        ui.show()
+
 
     def show_view_reserve(self):
         ui = ReserveView()
-        ui.show()
+
 
     def show(self):
         self.win = Tk()

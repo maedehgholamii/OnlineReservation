@@ -37,11 +37,10 @@ class CustomerView:
         self.reset_form()
 
 
-
     def __init__(self):
         self.win = Tk()
         self.win.title("Customer View")
-        self.win.geometry("900x350")
+        self.win.geometry("900x450")
 
         self.id = TextWithLabel(self.win, "ID For ٍEdit: ", 20, 20)
 
@@ -55,10 +54,12 @@ class CustomerView:
 
         self.telegram_id = TextWithLabel(self.win, "Telegram Id", 20, 220)
 
+        self.remove_row = TextWithLabel(self.win, "ID For Remove: ", 330, 400)
+
 
         Button(self.win, text= "save",activebackground = "light blue", command=self.save_click).place(x=90 , y=250, width = 50)
         Button(self.win, text= "edit",activebackground = "orange", command=self.edit_click).place(x=140 , y=250, width = 50)
-        Button(self.win, text= "delete", activebackground = "red",command=self.remove_click).place(x=190 , y=250 , width = 50)
+        Button(self.win, text= "delete", activebackground = "red",command=self.remove_click).place(x=490 , y=400 , width = 50)
 
         self.table = ttk.Treeview(self.win, columns=(1,2,3,4,5,6), show="headings", height= 13)
 
