@@ -1,4 +1,4 @@
 
-from view.timing_view import TimingView
+from view.reserve_view import ReserveView
 
-ui = TimingView()
+ui = ReserveView()
