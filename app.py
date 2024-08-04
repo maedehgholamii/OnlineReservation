@@ -31,11 +31,11 @@ class FrontView:
 
         Button(self.win, text="reserve", command=self.show_view_reserve).place(x=20, y=60)
 
-        # self.table = ttk.Treeview(self.win, columns=(1,2), show="headings")
+        self.table = ttk.Treeview(self.win, columns=(1,2), show="headings")
 
-        # self.table.place(x=320, y=20)
+        self.table.place(x=320, y=20)
 
-        # self.reset_form()
+        self.reset_form()
 
         self.win.mainloop()
 
