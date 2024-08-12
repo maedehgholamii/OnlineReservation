@@ -12,11 +12,18 @@ class BeautyJobView:
         status, beauty_job_list = BeautyJobController.find_all()
         if status:
             for beauty_job in beauty_job_list:
-                self.table.insert("", END, values=(beauty_job.name, beauty_job.family, beauty_job.mobile, beauty_job.instagram_id, beauty_job.telegram_id))
+                self.table.insert("", END,
+                                  values=(beauty_job.title, beauty_job.image, beauty_job.description))
 
     def save(self):
-        status, result = BeautyJobController.save_beauty_job(self.title.get(), self.image.get(), self.description.get())
+        status, result = BeautyJobController.save(self.title.variable.get(), self.image.variable.get(),
+                                                 self.description.variable.get())
         if status:
+            entered_data = (
+                f"Title: {self.title._variable.get()}\n"
+                f"Image: {self.image._variable.get()}\n"
+                f"Description: {self.description._variable.get()}\n"
+            )
             msg.showinfo("Beauty Job Saved!", result)
             self.reset_form()
         elif result.startswith("Error"):
