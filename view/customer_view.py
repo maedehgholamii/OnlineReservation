@@ -51,9 +51,9 @@ class CustomerView:
             msg.showerror("Error", result)
 
     def remove_click(self):
-        get_id = self.remove_row.variable.get()
-        CustomerController.remove_customer(get_id)
-        msg.showinfo("remove", "Customer Removed!")
+        id = self.remove_row.variable.get()
+        CustomerController.remove(id)
+        msg.showinfo("Timing deleted!", f"Are you sure to delete {id}?")
         self.reset_form()
 
 
